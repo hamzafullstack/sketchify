@@ -51,3 +51,11 @@ radioButtons.forEach((btn) => {
     });
 });
 
+// mousemove 
+grid.addEventListener('mousemove', (event) => {
+    if(event.target.classList.contains('grid-item')) {
+        event.target.style.backgroundColor = 'black';
+    }
+
+});
+
