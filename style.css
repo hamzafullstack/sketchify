@@ -1,14 +1,28 @@
 #grid {
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+    max-width: 70vw;
+    height: 80vh; 
+    margin-bottom: 10px;
+    top: 0;
+    left: 15vw;
+    overflow: hidden; /* Prevents text/borders from spilling out */
 }
 
+/* Force rows to shrink vertically to fit the 100vh height */
 .grid-row {
     display: flex;
+    flex-shrink: 1;
+    min-height: 0; /* Critical for vertical shrinking in flexbox */
 }
 
+/* Force items to shrink horizontally to fit the 70vw width */
 .grid-item {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border: 1px solid black;
+    flex-shrink: 1;
+    min-width: 0; /* Critical for horizontal shrinking */
 }
