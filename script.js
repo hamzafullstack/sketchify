@@ -1,6 +1,11 @@
 // selecting main Elements
 const grid = document.querySelector('#grid');
 const radioButtons = document.querySelectorAll('input[type="radio"]');
+// Checked default button
+const defaultRadio = document.querySelector('input[value="16"]');
+defaultRadio.checked = true;
+createGrid(defaultRadio);
+createGridItems(defaultRadio);
 
 // Creating grid
 function createGrid(input) {
@@ -37,10 +42,12 @@ radioButtons.forEach((btn) => {
     btn.addEventListener('change', (event) => {
         // event.target is the specific radio btn that was selected
         const selectedRadioButton = event.target;
+        // defaultRadio = event.target;
 
         // passing the radio button elements into functions
         createGrid(selectedRadioButton);
         createGridItems(selectedRadioButton);
+        
     });
 });
 
