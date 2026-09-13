@@ -1,6 +1,14 @@
-/* testing the css link with webpage */
-h1{
-    color: purple;
-    background-color: hotpink;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+#grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-row {
+    display: flex;
+}
+
+.grid-item {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
 }
