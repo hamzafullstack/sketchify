@@ -42,7 +42,6 @@ radioButtons.forEach((btn) => {
     btn.addEventListener('change', (event) => {
         // event.target is the specific radio btn that was selected
         const selectedRadioButton = event.target;
-        // defaultRadio = event.target;
 
         // passing the radio button elements into functions
         createGrid(selectedRadioButton);
@@ -51,10 +50,21 @@ radioButtons.forEach((btn) => {
     });
 });
 
+// extra credit random color container function
+function applyRandomColor() {
+    // gen random number
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    return randomColor;
+}
+
 // mousemove 
 grid.addEventListener('mousemove', (event) => {
     if(event.target.classList.contains('grid-item')) {
-        event.target.style.backgroundColor = 'black';
+        // normal
+        // event.target.style.backgroundColor = 'black';
+        // event.target.style.backgroundColor = 'red';
+        // extra credit RGB colors..
+        event.target.style.backgroundColor = applyRandomColor();
     }
 
 });
