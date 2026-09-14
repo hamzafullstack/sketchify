@@ -1,7 +1,6 @@
 #grid {
     display: flex;
     flex-direction: column;
-    /* border: 1px solid black; */
     width: 100%;
     max-width: 70vw;
     height: 80vh; 
@@ -62,10 +61,27 @@
     background-color: #e9ecef;
 }
 
-/* The magic: style the label text when its hidden radio is checked */
+/* style the label text when its hidden radio is checked */
 .toggle-item input[type="radio"]:checked + span {
     background-color: #212529; /* Dark tech look for Sketchify */
     color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Reset button  */
+#reset-btn {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#reset-btn:hover{
+    background-color: #E53935;
+}
