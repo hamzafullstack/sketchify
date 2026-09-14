@@ -1,32 +1,67 @@
+/* ---- 1. Global & Page Centering ---- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    
+    /* to center complete size vertically + horizentally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Fixed height */
+    overflow: hidden;
+    padding: 15px;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #222;
+}
+
+/* Controls row alignment */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+/* ---- 2. Dynamic Responsive Grid ---- */
 #grid {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 70vw;
-    height: 80vh; 
-    margin-bottom: 10px;
-    top: 0;
-    left: 15vw;
-    overflow: hidden; /* Prevents text/borders from spilling out */
+    /* 55vh se grid controls aur footer ke darmiyan phansega nahi */
+    max-width: 70vh; 
+    height: 70vh; 
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    overflow: hidden;
 }
 
-/* Force rows to shrink vertically to fit the 100vh height */
+/* Grid items automatically size directly from JS flex layout */
 .grid-row {
     display: flex;
-    flex-shrink: 1;
-    min-height: 0; /* Critical for vertical shrinking in flexbox */
+    flex: 1; /* Row equal height legi */
 }
 
-/* Force items to shrink horizontally to fit the 70vw width */
 .grid-item {
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    flex-shrink: 1;
-    min-width: 0; /* Critical for horizontal shrinking */
+    flex: 1; /* Item equal width lega */
+    border: 1px solid #e0e0e0;
+    /* inline height/width 20px nikal di taake dynamic resizing block na ho */
 }
 
-/* Container for the segmented control */
+/* ---- 3. Controls & Radio Toggles ---- */
 .toggle-group {
     display: inline-flex;
     background-color: #f1f3f5;
@@ -35,7 +70,6 @@
     border: 1px solid #e9ecef;
 }
 
-/* Hide the actual radio circle entirely */
 .toggle-item input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -43,10 +77,9 @@
     height: 0;
 }
 
-/* Style the clickable text area */
 .toggle-item span {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 6px 12px;
     font-family: sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -56,32 +89,66 @@
     transition: all 0.2s ease;
 }
 
-/* Hover state for unselected options */
 .toggle-item:hover span {
     background-color: #e9ecef;
 }
 
-/* style the label text when its hidden radio is checked */
 .toggle-item input[type="radio"]:checked + span {
-    background-color: #212529; /* Dark tech look for Sketchify */
+    background-color: #212529;
     color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Reset button  */
 #reset-btn {
-  background-color: red;
+  background-color: #dc3545;
   border: none;
   color: white;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-#reset-btn:hover{
-    background-color: #E53935;
+#reset-btn:hover {
+    background-color: #bd2130;
+}
+
+/* ---- 4. Minimal Footer Styling ---- */
+.site-footer {
+    width: 100%;
+    max-width: 60vh; /* Grid ke absolute width ke mutabiq sync */
+    margin-top: 5px;
+    border-top: 1px solid #e9ecef;
+    padding-top: 10px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container p {
+    font-size: 12px;
+    color: #777;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    color: #888;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-links a:hover {
+    color: #212529;
+    transform: translateY(-1px);
 }
