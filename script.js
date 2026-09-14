@@ -1,6 +1,9 @@
 // selecting main Elements
 const grid = document.querySelector('#grid');
 const radioButtons = document.querySelectorAll('input[type="radio"]');
+const gridItems = document.querySelectorAll('.grid-item');
+const gridResetButton = document.querySelector('#reset-btn');
+
 // Checked default button
 const defaultRadio = document.querySelector('input[value="16"]');
 defaultRadio.checked = true;
@@ -69,3 +72,10 @@ grid.addEventListener('mousemove', (event) => {
 
 });
 
+// Grid Reset Button.
+gridResetButton.addEventListener('click', () => {
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(cell => {
+        cell.style.backgroundColor = ''; //reverts the default.
+    });
+});
